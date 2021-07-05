@@ -18,7 +18,34 @@ export default class FrontendController {
 
         try {
             const headerData = await this.service.getHeaderData()
-            return response.send(headerData);
+            return response.json(headerData);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public async getFirstBlockContent(request: Request, response: Response, next: NextFunction) {
+        try {
+            const images = await this.service.getFirstBlockContent();
+            return response.json(images);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public async getSecondBlockContent(request: Request, response: Response, next: NextFunction) {
+        try {
+            const images = await this.service.getSecondBlockContent();
+            return response.json(images);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public async getHorizontalMenuContent(request: Request, response: Response, next: NextFunction) {
+        try {
+            const horizontalMenuContent = await this.service.getHorizontalMenuContent();
+            return response.json(horizontalMenuContent);
         } catch (error) {
             next(error);
         }

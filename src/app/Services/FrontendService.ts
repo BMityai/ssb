@@ -22,23 +22,18 @@ export default class FrontendService {
         const logo = await this.gramarketDbRepository.getLogo();
         const menu = await this.gramarketDbRepository.getMenu();
         const salesLogo = await this.gramarketDbRepository.getSalesLogo();
-        console.log(789)
         return {logo: logo, menu: menu, salesLogo: salesLogo};
     }
 
-    /**
-     * Get fulfilled result
-     */
-    protected getOnlyFulfilledPromiseResult(promisesData: PromiseSettledResult<any>[]): any[] {
-        const fulfilledData = new Array();
-        for(const data of promisesData) {
-            if(data.status === 'fulfilled') {
-                fulfilledData.push(data.value);
-            } else {
-                this.logger.error(data.reason);
-            }
+    public async getFirstBlockContent() {
+        return await this.gramarketDbRepository.getFirstBlockContent();
+    }
 
-        }
-        return fulfilledData;
+    public async getSecondBlockContent() {
+        return {content: await this.gramarketDbRepository.getSecondBlockContent()};
+    }
+
+    public async getHorizontalMenuContent() {
+        return {content: await this.gramarketDbRepository.getHorizontalMenuContent()};
     }
 }
