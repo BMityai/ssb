@@ -24,6 +24,9 @@ export default interface GramarketDbRepositoryInterface {
      */
     getSecondBlockContent(): Promise<any>
 
+    /**
+     * 
+     */
     getHorizontalMenuContent(): Promise<any>
 
 }
