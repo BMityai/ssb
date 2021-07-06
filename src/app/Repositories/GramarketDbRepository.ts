@@ -7,243 +7,225 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     public async getMenu(): Promise<any> {
         return [
             {
-                id: 1, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1', children: [
+                id: 1, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Книги', children: [
                     {
-                        id: 11, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_11111', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' }
+                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Детская литература', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' }
                         ]
                     },
                     {
-                        id: 12, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_11111', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' }
+                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Спорт', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' }
                         ]
                     },
                     {
-                       id: 13, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111111', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                       id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'IT технроргии', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 14, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111111', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Художественная литература', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 15, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_111111111', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Психология', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                 ]
             },
             {
-                id: 2, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_12222222', children: [
+                id: 2, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Спорт', children: [
                     {
-                        id: 11, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_122222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Футбол', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 12, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_122222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Баскетбол', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 13, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Волейбол', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 14, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_12222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Хоккей', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 15, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                ]
-            },{
-                id: 3, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1', children: [
-                    {
-                        id: 11, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 12, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_12222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 13, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_12222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 14, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222222', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 15, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1333333333', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Бокс', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                 ]
             },{
-                id: 4, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1', children: [
+                id: 3, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Фильмы', children: [
                     {
-                        id: 11, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1444444', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Боевики', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 12, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_13333333', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Комедии', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 13, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1555555', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Ужасы', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 14, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_11213', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Триллер', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 15, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14321', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Фантастика', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                 ]
             },{
-                id: 5, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1', children: [
+                id: 4, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Недвижимость', children: [
                     {
-                        id: 11, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_144444444', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Аренда', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 12, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1333333', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Покупка', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 13, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_13234234', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Продажа', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        ]
+                    }
+                ]
+            },{
+                id: 5, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Дом и сад', children: [
+                    {
+                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_144444444', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 14, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14234124', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1333333', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                     {
-                        id: 15, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1345234', children: [
-                            { id: 111, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, icon: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_13234234', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        ]
+                    },
+                    {
+                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14234124', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
+                        ]
+                    },
+                    {
+                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1345234', children: [
+                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
+                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
                         ]
                     },
                 ]
@@ -283,27 +265,27 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
 
     public async getHorizontalMenuContent(): Promise<any> {
         return '<ul class="block2-wrapper">' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/promotions.html?from=block2/" data-track-promo-name="promotions" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-promotions"> </span> <span class="block2-item-name">Акции</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/beskonechnaya-pupyrka-popits-ili-pop-it-lopni-ih.html?from=block2/" data-track-promo-name="pop-it" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-popit"> </span> <span class="block2-item-name">Pop-it — новый тренд</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/pervaya-kniga-naruto-v-prodazhe.html?from=block2/" data-track-promo-name="pervaya-kniga-naruto-v-prodazhe" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-naruto"> </span> <span class="block2-item-name">«Наруто»</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/magiya-vne-hogvartsa-suveniry-dlya-poklonnikov-potteriany.html?product_list_order=date_novelty&amp;from=block2/" data-track-promo-name="dlya-poklonnikov-potteriany" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-potter"> </span> <span class="block2-item-name">Гарри Поттер</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/lol/?from=block2/" data-track-promo-name="lol" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-lol"> </span> <span class="block2-item-name">L.O.L.</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/books?from=block2/" data-track-promo-name="books" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-books"> </span> <span class="block2-item-name">Книги</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/mezhgalakticheskie-priklyucheniya-ratchet-clank-skvoz-miry.html?from=block2/" data-track-promo-name="Ratchet &amp; Clank: Сквозь миры" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-books"> </span> <span class="block2-item-name">Ratchet &amp; Clank: Сквозь миры</span> </a></li><div data-dy-embedded-object="true"><div class="dy_unit dy_smart_object_879266 dyother dyMonitor" data-adid="smart_object_879266||116|||" data-dy-exp-id="893845" data-dy-var-id="21640167" data-dy-ver-data="9500288::0:1625471309018:73587:90729:1:0:0.7664699610322714" data-dy-att-method="0" data-dy-att-seq="19310">' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/promotions.html?from=block2/" data-track-promo-name="promotions" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-promotions"> </span> <span class="block2-item-name">Акции</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/beskonechnaya-pupyrka-popits-ili-pop-it-lopni-ih.html?from=block2/" data-track-promo-name="pop-it" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-popit"> </span> <span class="block2-item-name">Pop-it — новый тренд</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/pervaya-kniga-naruto-v-prodazhe.html?from=block2/" data-track-promo-name="pervaya-kniga-naruto-v-prodazhe" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-naruto"> </span> <span class="block2-item-name">«Наруто»</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/magiya-vne-hogvartsa-suveniry-dlya-poklonnikov-potteriany.html?product_list_order=date_novelty&amp;from=block2/" data-track-promo-name="dlya-poklonnikov-potteriany" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-potter"> </span> <span class="block2-item-name">Гарри Поттер</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/lol/?from=block2/" data-track-promo-name="lol" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-lol"> </span> <span class="block2-item-name">L.O.L.</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/books?from=block2/" data-track-promo-name="books" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-books"> </span> <span class="block2-item-name">Книги</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/mezhgalakticheskie-priklyucheniya-ratchet-clank-skvoz-miry.html?from=block2/" data-track-promo-name="Ratchet &amp; Clank: Сквозь миры" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-books"> </span> <span class="block2-item-name">Ratchet &amp; Clank: Сквозь миры</span> </a></li><div data-dy-embedded-object="true"><div class="dy_unit dy_smart_object_879266 dyother dyMonitor" data-adid="smart_object_879266||116|||" data-dy-exp-id="893845" data-dy-var-id="21640167" data-dy-ver-data="9500288::0:1625471309018:73587:90729:1:0:0.7664699610322714" data-dy-att-method="0" data-dy-att-seq="19310">' +
             '<style type="text/css">' +
             '.block2-wrapper{display:flex} .block2-wrapper li{list-style-type:none; margin-right:20px} .block2-wrapper li a {color: #000; text-decoration: unset}' +
-            '</style><li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/express-delivery.html?from=block2/"> <span class="block2-item-icon icon-express"> </span> <span class="block2-item-name">Экспресс-магазин</span> </a></li></div></div>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/toys-and-entertainment/table-games?from=block2/" data-track-promo-name="table-games" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-tablegames"> </span> <span class="block2-item-name">Настольные игры</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/videogames/?from=block2/" data-track-promo-name="videogames" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-consoles"> </span> <span class="block2-item-name">Видеоигры и консоли</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/novinki.html?from=block2/" data-track-promo-name="recommend" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-recommend"> </span> <span class="block2-item-name">Рекомендуем</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/lidery-prodazh-meloman-top-50-luchshih-tovarov.html?product_list_order=product_rate&amp;from=block2/" data-track-promo-name="lidery-prodazh-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-hit"> </span> <span class="block2-item-name">ТОП продаж</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/food-items/?from=block2/" data-track-promo-name="sweets" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-sweets"> </span> <span class="block2-item-name">Сладости-напитки</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/tvorchestvo-19692?from=block2/" data-track-promo-name="tvorchestvo" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-art"> </span> <span class="block2-item-name">Творчество, Fine Art</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/superskidki-meloman.html?product_list_order=discount_percentage&amp;from=block2/" data-track-promo-name="superskidki-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-supersale"> </span> <span class="block2-item-name">Суперскидки</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/127-audiotehnika-28213?from=block2/" data-track-promo-name="audiotehnika" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-headphones"> </span> <span class="block2-item-name">Наушники и аудиотехника</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/showcase?from=block2/" data-track-promo-name="showcase" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-showcase"> </span> <span class="block2-item-name">Витрины</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/?from=block2/" data-track-promo-name="brand" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-brands"> </span> <span class="block2-item-name">Бренды</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/shkola-kancelyariya-19236?from=block2/" data-track-promo-name="shkola-kancelyariya" data-track-promo-position="block-2.meloman"> <span class="block2-item-icon icon-school"> </span> <span class="block2-item-name">Школа, канцелярия</span> </a></li>' +
+            '</style><li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/express-delivery.html?from=block2/"> <span class="block2-item-thumbnail thumbnail-express"> </span> <span class="block2-item-name">Экспресс-магазин</span> </a></li></div></div>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/toys-and-entertainment/table-games?from=block2/" data-track-promo-name="table-games" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-tablegames"> </span> <span class="block2-item-name">Настольные игры</span> </a></li>' +
+            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/videogames/?from=block2/" data-track-promo-name="videogames" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-consoles"> </span> <span class="block2-item-name">Видеоигры и консоли</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/novinki.html?from=block2/" data-track-promo-name="recommend" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-recommend"> </span> <span class="block2-item-name">Рекомендуем</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/lidery-prodazh-meloman-top-50-luchshih-tovarov.html?product_list_order=product_rate&amp;from=block2/" data-track-promo-name="lidery-prodazh-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-hit"> </span> <span class="block2-item-name">ТОП продаж</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/food-items/?from=block2/" data-track-promo-name="sweets" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-sweets"> </span> <span class="block2-item-name">Сладости-напитки</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/tvorchestvo-19692?from=block2/" data-track-promo-name="tvorchestvo" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-art"> </span> <span class="block2-item-name">Творчество, Fine Art</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/superskidki-meloman.html?product_list_order=discount_percentage&amp;from=block2/" data-track-promo-name="superskidki-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-supersale"> </span> <span class="block2-item-name">Суперскидки</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/127-audiotehnika-28213?from=block2/" data-track-promo-name="audiotehnika" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-headphones"> </span> <span class="block2-item-name">Наушники и аудиотехника</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/showcase?from=block2/" data-track-promo-name="showcase" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-showcase"> </span> <span class="block2-item-name">Витрины</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/?from=block2/" data-track-promo-name="brand" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-brands"> </span> <span class="block2-item-name">Бренды</span> </a></li>' +
+            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/shkola-kancelyariya-19236?from=block2/" data-track-promo-name="shkola-kancelyariya" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-school"> </span> <span class="block2-item-name">Школа, канцелярия</span> </a></li>' +
             '</ul>';
     }
 
