@@ -286,7 +286,10 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/showcase?from=block2/" data-track-promo-name="showcase" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-showcase"> </span> <span class="block2-item-name">Витрины</span> </a></li>' +
             // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/?from=block2/" data-track-promo-name="brand" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-brands"> </span> <span class="block2-item-name">Бренды</span> </a></li>' +
             // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/shkola-kancelyariya-19236?from=block2/" data-track-promo-name="shkola-kancelyariya" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-school"> </span> <span class="block2-item-name">Школа, канцелярия</span> </a></li>' +
-            '</ul>';
+            '</ul>' +
+            '<script type="text/javascript"> \n' +
+            'alert(456) \n' +
+            '</script>' ;
     }
 
     public async getSecondBlockContent(): Promise<any> {

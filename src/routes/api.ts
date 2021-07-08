@@ -24,19 +24,19 @@ router.get(`/api/frontend/${version}/header`, (request: Request, response: Respo
 });
 
 // Get first block data (images - full width banners)
-router.get(`/api/frontend/${version}/first_block`, (request: Request, response: Response, next: NextFunction) => {
+router.get(`/api/frontend/${version}/home_page/content/first_block`, (request: Request, response: Response, next: NextFunction) => {
     frontendController.getFirstBlockContent(request, response, next);
     next();
 });
 
 // Get first block data (images - full width banners)
-router.get(`/api/frontend/${version}/second_block`, (request: Request, response: Response, next: NextFunction) => {
+router.get(`/api/frontend/${version}/home_page/content/second_block`, (request: Request, response: Response, next: NextFunction) => {
     frontendController.getSecondBlockContent(request, response, next);
     next();
 });
 
 // Get horizontal menu content (html format) under header
-router.get(`/api/frontend/${version}/horizontal_menu`, (request: Request, response: Response, next: NextFunction) => {
+router.get(`/api/frontend/${version}/home_page/content/horizontal_menu`, (request: Request, response: Response, next: NextFunction) => {
     frontendController.getHorizontalMenuContent(request, response, next);
     next();
 });
