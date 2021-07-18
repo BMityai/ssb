@@ -7,7 +7,7 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get menu items
      */
-    getLogo(): Promise<any>
+    getContent(contentName: string, area: string, entityId?: number | null, districtId?: number, sort?: string): Promise<any>
 
     /**
      * Get menu items
@@ -15,18 +15,7 @@ export default interface GramarketDbRepositoryInterface {
     getSalesLogo(): Promise<any>
 
     /**
-     * Get first block images
-     */
-    getFirstBlockContent(): Promise<any>
-
-    /**
      * Get second block images
      */
     getSecondBlockContent(): Promise<any>
-
-    /**
-     * 
-     */
-    getHorizontalMenuContent(): Promise<any>
-
 }

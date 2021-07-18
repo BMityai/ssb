@@ -1,6 +1,18 @@
+import Database from 'sosise-core/build/Database/Database';
+import Helper from 'sosise-core/build/Helper/Helper';
+import databaseConfig from '../../config/database';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
+
+    /**
+     * Database connection
+     */
+    private dbConnection: Database;
+
+    constructor() {
+        this.dbConnection = Database.getConnection(databaseConfig.default as string);
+    }
     /**
      * Get menu items
      */
@@ -27,7 +39,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
                         ]
                     },
                     {
-                       id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'IT технроргии', children: [
+                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'IT технроргии', children: [
                             { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
                             { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
                             { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
@@ -103,7 +115,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
                         ]
                     },
                 ]
-            },{
+            }, {
                 id: 3, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Фильмы', children: [
                     {
                         id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Боевики', children: [
@@ -151,7 +163,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
                         ]
                     },
                 ]
-            },{
+            }, {
                 id: 4, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Недвижимость', children: [
                     {
                         id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Аренда', children: [
@@ -181,7 +193,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
                         ]
                     }
                 ]
-            },{
+            }, {
                 id: 5, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Дом и сад', children: [
                     {
                         id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_144444444', children: [
@@ -235,61 +247,37 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     }
 
     /**
-     * Get menu items
+     * Get content
      */
-    public async getLogo(): Promise<any> {
-        return 'https://via.placeholder.com/150x50';
+    public async getContent(contentName: string, area: string, entityId: number | null = null, districtId: number = 0, sort: string = 'asc'): Promise<any> {
+        return await this.dbConnection.client.table('content')
+            .select([
+                'content.id as id',
+                'content.text as text',
+                'content.url as url',
+                'content.image as image',
+                'content.block_id as blockId',
+                'content.entity_id as entityId',
+                'area_dict.value as area',
+                // 'district.value as district',
+                'content_dict.name as block',
+            ])
+            .innerJoin('content_dict', 'content.block_id', 'content_dict.id')
+            .innerJoin('area_dict', 'content.area_id', 'area_dict.id')
+            // .innerJoin('district', 'content.district_id', 'district.id')
+            .where('content_dict.name', contentName)
+            .where('area_dict.value', area)
+            .where('content.district_id', districtId)
+            .where('content.is_enable', 1)
+            .where('content.entity_id', entityId)
+            .orderBy('content.position', sort);
     }
 
     /**
-     * Get menu items
+     * Get logo
      */
     public async getSalesLogo(): Promise<any> {
         return 'https://via.placeholder.com/150x50';
-    }
-
-    public async getFirstBlockContent(): Promise<any> {
-        return [
-            { id: 1, href: 'https://meloman.kz', src: 'https://www.marwin.kz/media/wysiwyg/dynamic/marvel-legends-legendarnye-personazhi-dlya-legendarnoj-kollekcii2_1.jpg' },
-            { id: 2, href: '/', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/ot-poehzii-do-fehntezi-akciya-1-1-na-knigi2.jpg' },
-            { id: 3, href: '#', src: 'https://www.marwin.kz/media/wysiwyg/dynamic/luka-v-kino2.jpg' },
-            { id: 4, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/ps5_DualSense2.jpg' },
-            { id: 5, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/luchshee-detyam-skidki-30-na-assortiment-detskih-knig-ot-rosmehn2.jpg' },
-            { id: 6, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/chitaem-s-vygodoj-akciya-2-1-na-knigi-ot-izdatelstva-ast2.jpg' },
-            { id: 7, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/knigi-izdatelstva-freedom-po-supercene-2290-teng2.jpg' },
-            { id: 8, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/tolko-v-iyule-30-na-seriyu-knig-p-harrisona-ot-izdatelstva-ehksmo2.jpg' },
-            { id: 9, href: '#', src: 'https://www.marwin.kz/media/wysiwyg/dynamic/ehksklyuzivy-lego-novinki-20212.gif' },
-            { id: 10, href: '#', src: 'https://simg.marwin.kz/media/wysiwyg/dynamic/vdohnovlyajsya-30-na-knigi-izdatelstva-inspiria2.jpg' },
-        ]
-    }
-
-    public async getHorizontalMenuContent(): Promise<any> {
-        return '<ul class="block2-wrapper">' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/promotions.html?from=block2/" data-track-promo-name="promotions" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-promotions"> </span> <span class="block2-item-name">Акции</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/beskonechnaya-pupyrka-popits-ili-pop-it-lopni-ih.html?from=block2/" data-track-promo-name="pop-it" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-popit"> </span> <span class="block2-item-name">Pop-it — новый тренд</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/pervaya-kniga-naruto-v-prodazhe.html?from=block2/" data-track-promo-name="pervaya-kniga-naruto-v-prodazhe" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-naruto"> </span> <span class="block2-item-name">«Наруто»</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/magiya-vne-hogvartsa-suveniry-dlya-poklonnikov-potteriany.html?product_list_order=date_novelty&amp;from=block2/" data-track-promo-name="dlya-poklonnikov-potteriany" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-potter"> </span> <span class="block2-item-name">Гарри Поттер</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/lol/?from=block2/" data-track-promo-name="lol" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-lol"> </span> <span class="block2-item-name">L.O.L.</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/books?from=block2/" data-track-promo-name="books" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-books"> </span> <span class="block2-item-name">Книги</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/mezhgalakticheskie-priklyucheniya-ratchet-clank-skvoz-miry.html?from=block2/" data-track-promo-name="Ratchet &amp; Clank: Сквозь миры" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-books"> </span> <span class="block2-item-name">Ratchet &amp; Clank: Сквозь миры</span> </a></li><div data-dy-embedded-object="true"><div class="dy_unit dy_smart_object_879266 dyother dyMonitor" data-adid="smart_object_879266||116|||" data-dy-exp-id="893845" data-dy-var-id="21640167" data-dy-ver-data="9500288::0:1625471309018:73587:90729:1:0:0.7664699610322714" data-dy-att-method="0" data-dy-att-seq="19310">' +
-            '<style type="text/css">' +
-            '.block2-wrapper{display:flex} .block2-wrapper li{list-style-type:none; margin-right:20px} .block2-wrapper li a {color: #000; text-decoration: unset}' +
-            '</style><li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/express-delivery.html?from=block2/"> <span class="block2-item-thumbnail thumbnail-express"> </span> <span class="block2-item-name">Экспресс-магазин</span> </a></li></div></div>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/toys-and-entertainment/table-games?from=block2/" data-track-promo-name="table-games" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-tablegames"> </span> <span class="block2-item-name">Настольные игры</span> </a></li>' +
-            '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/videogames/?from=block2/" data-track-promo-name="videogames" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-consoles"> </span> <span class="block2-item-name">Видеоигры и консоли</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/category/novinki.html?from=block2/" data-track-promo-name="recommend" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-recommend"> </span> <span class="block2-item-name">Рекомендуем</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/lidery-prodazh-meloman-top-50-luchshih-tovarov.html?product_list_order=product_rate&amp;from=block2/" data-track-promo-name="lidery-prodazh-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-hit"> </span> <span class="block2-item-name">ТОП продаж</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/food-items/?from=block2/" data-track-promo-name="sweets" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-sweets"> </span> <span class="block2-item-name">Сладости-напитки</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/tvorchestvo-19692?from=block2/" data-track-promo-name="tvorchestvo" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-art"> </span> <span class="block2-item-name">Творчество, Fine Art</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/press/superskidki-meloman.html?product_list_order=discount_percentage&amp;from=block2/" data-track-promo-name="superskidki-meloman" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-supersale"> </span> <span class="block2-item-name">Суперскидки</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/127-audiotehnika-28213?from=block2/" data-track-promo-name="audiotehnika" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-headphones"> </span> <span class="block2-item-name">Наушники и аудиотехника</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/showcase?from=block2/" data-track-promo-name="showcase" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-showcase"> </span> <span class="block2-item-name">Витрины</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/brand/?from=block2/" data-track-promo-name="brand" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-brands"> </span> <span class="block2-item-name">Бренды</span> </a></li>' +
-            // '<li class="item-block2-wrapper"><a class="block2-item" href="https://www.meloman.kz/shkola-kancelyariya-19236?from=block2/" data-track-promo-name="shkola-kancelyariya" data-track-promo-position="block-2.meloman"> <span class="block2-item-thumbnail thumbnail-school"> </span> <span class="block2-item-name">Школа, канцелярия</span> </a></li>' +
-            '</ul>' +
-            '<script type="text/javascript"> \n' +
-            'alert(456) \n' +
-            '</script>' ;
     }
 
     public async getSecondBlockContent(): Promise<any> {

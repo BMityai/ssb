@@ -6,7 +6,7 @@ import GramarketDbRepositoryInterface from "../Repositories/GramarketDbRepositor
 export default class FrontendService {
     protected gramarketDbRepository: GramarketDbRepositoryInterface
     protected logger: LoggerService
-    
+
     /**
      * Constructor
      */
@@ -19,21 +19,23 @@ export default class FrontendService {
      * Get header data
      */
     public async getHeaderData(): Promise<any> {
-        const logo = await this.gramarketDbRepository.getLogo();
+        const logoContentData = await this.gramarketDbRepository.getContent('logo', 'layout');
+        const logo = logoContentData[0].image;
         const menu = await this.gramarketDbRepository.getMenu();
         const salesLogo = await this.gramarketDbRepository.getSalesLogo();
-        return {logo: logo, menu: menu, salesLogo: salesLogo};
+        return { logo: logo, menu: menu, salesLogo: salesLogo };
     }
 
-    public async getFirstBlockContent() {
-        return await this.gramarketDbRepository.getFirstBlockContent();
-    }
+    public async getBlockContent(blockName: string, area: string, id: number | null) {
 
-    public async getSecondBlockContent() {
-        return {content: await this.gramarketDbRepository.getSecondBlockContent()};
-    }
+        const content = await this.gramarketDbRepository.getContent(blockName, area, id, undefined, 'asc');
+        return content;
 
-    public async getHorizontalMenuContent() {
-        return {content: await this.gramarketDbRepository.getHorizontalMenuContent()};
+        switch (blockName) {
+            case 'second_block':
+                return { content: await this.gramarketDbRepository.getSecondBlockContent() };
+            default:
+                return {};
+        }
     }
 }

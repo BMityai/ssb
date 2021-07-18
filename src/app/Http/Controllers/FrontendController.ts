@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import Helper from 'sosise-core/build/Helper/Helper';
 import IOC from 'sosise-core/build/ServiceProviders/IOC';
-import HttpResponse from 'sosise-core/build/Types/HttpResponse';
 import FrontendService from '../../Services/FrontendService';
+import lodash from 'lodash'
 export default class FrontendController {
 
     service: FrontendService;
@@ -10,44 +10,24 @@ export default class FrontendController {
     constructor() {
         this.service = IOC.make('FrontendService');
     }
-    
+
     /**
      * Get header
      */
     public async getHeader(request: Request, response: Response, next: NextFunction) {
-
         try {
-            const headerData = await this.service.getHeaderData()
+            const headerData = await this.service.getHeaderData();
             return response.json(headerData);
         } catch (error) {
             next(error);
         }
     }
 
-    public async getFirstBlockContent(request: Request, response: Response, next: NextFunction) {
-        try {
-            const images = await this.service.getFirstBlockContent();
-            return response.json(images);
-        } catch (error) {
-            next(error);
-        }
+    public async getBlockContent(request: Request, response: Response, next: NextFunction) {
+        const areaId = lodash.get(request.query, 'id', null);
+        const area = lodash.get(request.query, 'area', 'home_page');
+        const content = await this.service.getBlockContent(request.params.blockName, area as string, areaId as number | null);
+        return response.json(content);
     }
 
-    public async getSecondBlockContent(request: Request, response: Response, next: NextFunction) {
-        try {
-            const images = await this.service.getSecondBlockContent();
-            return response.json(images);
-        } catch (error) {
-            next(error);
-        }
-    }
-
-    public async getHorizontalMenuContent(request: Request, response: Response, next: NextFunction) {
-        try {
-            const horizontalMenuContent = await this.service.getHorizontalMenuContent();
-            return response.json(horizontalMenuContent);
-        } catch (error) {
-            next(error);
-        }
-    }
 }
