@@ -3,9 +3,9 @@ import BaseSchema from 'sosise-core/build/Database/BaseSchema';
 /**
  * If you need more information, see: http://knexjs.org/#Schema
  */
-export default class CreateBlockAreaTeble extends BaseSchema {
+export default class CreatePageTypeDictTable extends BaseSchema {
 
-    protected tableName = 'area_dict';
+    protected tableName = 'page_type_dict';
 
     /**
      * Run the migrations.

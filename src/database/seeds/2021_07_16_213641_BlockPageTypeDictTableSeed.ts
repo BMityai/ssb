@@ -4,7 +4,7 @@ import * as faker from 'faker';
 /**
  * If you need more information, see: http://knexjs.org/#Schema ; https://www.npmjs.com/package/faker
  */
-export default class BlockAreaTableSeed extends BaseSchema {
+export default class BlockPageTypeDictTableSeed extends BaseSchema {
     /**
      * Restrict running the seed only in a local environment (APP_ENV=local)
      */
@@ -13,7 +13,7 @@ export default class BlockAreaTableSeed extends BaseSchema {
     /**
      * Table name where data should be inserted in
      */
-    protected tableName = 'area_dict';
+    protected tableName = 'page_type_dict';
 
     /**
      * Run seed
@@ -24,7 +24,8 @@ export default class BlockAreaTableSeed extends BaseSchema {
             { value: 'layout', created_at: new Date(), updated_at: new Date() },
             { value: 'home_page', created_at: new Date(), updated_at: new Date() },
             { value: 'product_page', created_at: new Date(), updated_at: new Date() },
-            { value: 'category_page', created_at: new Date(), updated_at: new Date() }
+            { value: 'category_page', created_at: new Date(), updated_at: new Date() },
+            { value: 'custom_page', created_at: new Date(), updated_at: new Date() }
         ];
 
         // Insert to table

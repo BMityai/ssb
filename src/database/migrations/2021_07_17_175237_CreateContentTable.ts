@@ -18,7 +18,7 @@ export default class CreateContentTable extends BaseSchema {
             table.string('image');
             table.integer('block_id');
             table.integer('entity_id');
-            table.integer('area_id').nullable();
+            table.integer('page_type_id').nullable();
             table.integer('district_id').defaultTo('0');
             table.boolean('is_enable').defaultTo(true);
             table.integer('position');
