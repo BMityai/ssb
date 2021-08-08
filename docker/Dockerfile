@@ -4,9 +4,11 @@ FROM alpine:3.13
 WORKDIR /var/www/app
 
 RUN \
+    # Add KZ repository (comment this line if you want to use default repositories)
+    sed -i 's/dl-cdn.alpinelinux.org/mirror.ps.kz/g' /etc/apk/repositories && \
     # Install packages
     apk add --no-cache \
-    nodejs-current npm tzdata supervisor dcron bash git make && \
+    nodejs-current npm tzdata supervisor dcron bash git make chromium && \
     # Update npm to the 7.x version (atm it is the latest version)
     npm install -g npm@^7 && \
     # Configure timezone

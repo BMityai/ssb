@@ -3,9 +3,9 @@ import BaseSchema from 'sosise-core/build/Database/BaseSchema';
 /**
  * If you need more information, see: http://knexjs.org/#Schema
  */
-export default class CreateCategoryEntityTable extends BaseSchema {
+export default class CreateCatalaogCategoryDecimalTable extends BaseSchema {
 
-    protected tableName = 'catalog_category';
+    protected tableName = 'catalog_category_decimal';
 
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ export default class CreateCategoryEntityTable extends BaseSchema {
     public async up(): Promise<void> {
         await this.dbConnection.schema.createTable(this.tableName, (table) => {
             table.increments('id');
-            table.integer('level').defaultTo(1);
-            table.integer('parent_id').nullable();
-            table.integer('position').defaultTo(1);
+            table.integer('attribute_id');
+            table.integer('category_id');
+            table.decimal('value');
             table.timestamps(true);
         });
     }

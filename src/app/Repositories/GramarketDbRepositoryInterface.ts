@@ -1,8 +1,10 @@
+import AllCategoriesType from "../Types/AllCategoriesType";
+
 export default interface GramarketDbRepositoryInterface {
     /**
-     * Get menu items
+     * Get all categories
      */
-    getMenu(): Promise<any>
+     getAllCategories(): Promise<AllCategoriesType>
 
     /**
      * Get block content

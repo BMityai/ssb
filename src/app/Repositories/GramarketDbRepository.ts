@@ -1,6 +1,7 @@
 import Database from 'sosise-core/build/Database/Database';
 import Helper from 'sosise-core/build/Helper/Helper';
 import databaseConfig from '../../config/database';
+import AllCategoriesType from '../Types/AllCategoriesType';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
@@ -13,10 +14,21 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     constructor() {
         this.dbConnection = Database.getConnection(databaseConfig.default as string);
     }
+
+    public async getAllCategories(): Promise<AllCategoriesType> {
+        const categories = await this.dbConnection.client.raw(
+            "select `cc`.`id` as `entity_id`, `cc`.`parent_id`, `cc`.`position`, `cc`.`level`, `ccv`.`value`, `attribute`.`code`, `cc`.`created_at`, `cc`.`updated_at` " + 
+            "from `catalog_category` as `cc` left join `catalog_category_int` as `cci` on `cc`.`id` = `cci`.`category_id` " + 
+            "left join `catalog_category_varchar` as `ccv` on `cc`.`id` = `ccv`.`category_id` left join `catalog_category_text` as `cct` on `cc`.`id` = `cct`.`category_id` " + 
+            "left join `catalog_category_decimal` as `ccd` on `cc`.`id` = `ccd`.`category_id` left join `attribute` as `a1` on `cci`.`attribute_id` = `a1`.`id` " + 
+            "left join `attribute` on `ccv`.`attribute_id` = `attribute`.`id` order by `cc`.`position` ASC");
+        return new AllCategoriesType(categories[0]);
+    }
     /**
      * Get menu items
      */
-    public async getMenu(): Promise<any> {
+    public async getMenu(): Promise<any> {   // TODO REMOVE IT
+        Helper.dd(await this.getAllCategories());
         return [
             {
                 id: 1, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Книги', children: [
