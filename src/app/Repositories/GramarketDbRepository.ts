@@ -17,245 +17,12 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
 
     public async getAllCategories(): Promise<AllCategoriesType> {
         const categories = await this.dbConnection.client.raw(
-            "select `cc`.`id` as `entity_id`, `cc`.`parent_id`, `cc`.`position`, `cc`.`level`, `ccv`.`value`, `attribute`.`code`, `cc`.`created_at`, `cc`.`updated_at` " + 
-            "from `catalog_category` as `cc` left join `catalog_category_int` as `cci` on `cc`.`id` = `cci`.`category_id` " + 
-            "left join `catalog_category_varchar` as `ccv` on `cc`.`id` = `ccv`.`category_id` left join `catalog_category_text` as `cct` on `cc`.`id` = `cct`.`category_id` " + 
-            "left join `catalog_category_decimal` as `ccd` on `cc`.`id` = `ccd`.`category_id` left join `attribute` as `a1` on `cci`.`attribute_id` = `a1`.`id` " + 
+            "select `cc`.`id` as `entity_id`, `cc`.`parent_id`, `cc`.`position`, `cc`.`level`, `ccv`.`value`, `attribute`.`code`, `cc`.`created_at`, `cc`.`updated_at` " +
+            "from `catalog_category` as `cc` left join `catalog_category_int` as `cci` on `cc`.`id` = `cci`.`category_id` " +
+            "left join `catalog_category_varchar` as `ccv` on `cc`.`id` = `ccv`.`category_id` left join `catalog_category_text` as `cct` on `cc`.`id` = `cct`.`category_id` " +
+            "left join `catalog_category_decimal` as `ccd` on `cc`.`id` = `ccd`.`category_id` left join `attribute` as `a1` on `cci`.`attribute_id` = `a1`.`id` " +
             "left join `attribute` on `ccv`.`attribute_id` = `attribute`.`id` order by `cc`.`position` ASC");
         return new AllCategoriesType(categories[0]);
-    }
-    /**
-     * Get menu items
-     */
-    public async getMenu(): Promise<any> {   // TODO REMOVE IT
-        Helper.dd(await this.getAllCategories());
-        return [
-            {
-                id: 1, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Книги', children: [
-                    {
-                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Детская литература', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1111' }
-                        ]
-                    },
-                    {
-                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Спорт', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1222' }
-                        ]
-                    },
-                    {
-                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'IT технроргии', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Художественная литература', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Психология', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                ]
-            },
-            {
-                id: 2, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Спорт', children: [
-                    {
-                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Футбол', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Баскетбол', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Волейбол', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Хоккей', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Бокс', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                ]
-            }, {
-                id: 3, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Фильмы', children: [
-                    {
-                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Боевики', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Комедии', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Ужасы', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Триллер', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Фантастика', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                ]
-            }, {
-                id: 4, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Недвижимость', children: [
-                    {
-                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Аренда', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Покупка', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Продажа', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    }
-                ]
-            }, {
-                id: 5, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'Дом и сад', children: [
-                    {
-                        id: 11, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_144444444', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 12, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1333333', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 13, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_13234234', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 14, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_14234124', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                    {
-                        id: 15, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1345234', children: [
-                            { id: 111, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 112, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 113, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 114, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' },
-                            { id: 115, thumbnail: 'https://via.placeholder.com/25x25', href: '/test', name: 'test_1' }
-                        ]
-                    },
-                ]
-            },
-
-        ];
     }
 
     /**
@@ -284,4 +51,18 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .where('content.entity_id', entityId)
             .orderBy('content.position', sort);
     }
+
+    public async getAdminUser(login: string) {
+        return await this.dbConnection.client.table('admin_user')
+            .where('username', login)
+            .orWhere('email', login)
+            .first()
+    }
+
+    public async getUserById(id: string) {
+        return await this.dbConnection.client.table('admin_user')
+            .where('id', id)
+            .first()
+    }
+
 }

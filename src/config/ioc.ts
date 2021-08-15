@@ -1,4 +1,5 @@
 import GramarketDbRepository from "../app/Repositories/GramarketDbRepository";
+import AdminhtmlService from "../app/Services/AdminhtmlService";
 import FrontendService from "../app/Services/FrontendService";
 
 /**
@@ -39,6 +40,9 @@ const iocConfig = {
         // }
         FrontendService: () => {
             return new FrontendService(new GramarketDbRepository());
+        },
+        AdminhtmlService: () => {
+            return new AdminhtmlService(new GramarketDbRepository());
         }
     }
 };

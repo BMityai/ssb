@@ -29,8 +29,4 @@ router.get(`/api/frontend/${version}/home_page/content/:blockName`, (request: Re
 });
 
 
-
-
-
-
 export default router;

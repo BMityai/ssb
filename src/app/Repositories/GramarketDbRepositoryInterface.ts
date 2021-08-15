@@ -4,10 +4,14 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get all categories
      */
-     getAllCategories(): Promise<AllCategoriesType>
+     getAllCategories(): Promise<AllCategoriesType>;
 
     /**
      * Get block content
      */
-    getContent(contentName: string, pageType: string, entityId?: number | null, districtId?: number, sort?: string): Promise<any>
+    getContent(contentName: string, pageType: string, entityId?: number | null, districtId?: number, sort?: string): Promise<any>;
+
+    getAdminUser(login: string);
+    getUserById(id: string);
+
 }
