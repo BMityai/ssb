@@ -25,7 +25,6 @@ export default class AllCategoriesType {
             }
             groupedCategories[category.entity_id].push(category);
         }
-        // Helper.dd(groupedCategories)
 
         for(const perCategoryGroup of Object.values(groupedCategories)) {
             const typedCategory = new CategoryType(perCategoryGroup);

@@ -31,8 +31,10 @@ export default class FrontendService {
     /**
      * Get data for blocks
      */ 
-    public async getBlockContent(blockName: string, pageType: string, id: number | null) {
-        const content = await this.gramarketDbRepository.getContent(blockName, pageType, id, undefined, 'asc');
+    public async getBlockContent(blockName: string, pageType: string, districtId: number | null) {
+
+        const content = await this.gramarketDbRepository.getContent(blockName, pageType, undefined, 'asc');
+        console.log(blockName);
         return content;
     }
 

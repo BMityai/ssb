@@ -1,4 +1,6 @@
 import AllCategoriesType from "../Types/AllCategoriesType";
+import GetContentBlocksType from "../Components/Content/Block/adminhtml/Types/GetContentBlocksType";
+import PrimevueTableParamsConverterUnifier from "../Components/Content/Block/adminhtml/Unifiers/PrimevueTableParamsConverterUnifier";
 
 export default interface GramarketDbRepositoryInterface {
     /**
@@ -9,9 +11,10 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get block content
      */
-    getContent(contentName: string, pageType: string, entityId?: number | null, districtId?: number, sort?: string): Promise<any>;
+    getContent(contentName: string, pageType: string, districtId?: number, sort?: string): Promise<any>;
 
     getAdminUser(login: string);
+    
     getUserById(id: string);
 
 }

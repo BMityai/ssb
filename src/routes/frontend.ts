@@ -5,6 +5,10 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 const router = express.Router();
 
+
+import ContentBlockRoute from '../app/Components/Content/Block/frontend/Routes/api'
+
+
 const corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 
@@ -23,10 +27,13 @@ router.get(`/api/frontend/${version}/header`, (request: Request, response: Respo
     frontendController.getHeader(request, response, next);
 });
 
-// Get block content by name 
-router.get(`/api/frontend/${version}/home_page/content/:blockName`, (request: Request, response: Response, next: NextFunction) => {
-    frontendController.getBlockContent(request, response, next);
-});
+// // Get block content by name 
+// router.get(`/api/frontend/${version}/content/block/:blockName`, (request: Request, response: Response, next: NextFunction) => {
+//     frontendController.getBlockContent(request, response, next);
+// });
+
+// Content -> blocks
+router.use(ContentBlockRoute)
 
 
 export default router;

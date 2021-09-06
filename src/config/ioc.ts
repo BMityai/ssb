@@ -2,6 +2,12 @@ import GramarketDbRepository from "../app/Repositories/GramarketDbRepository";
 import AdminhtmlService from "../app/Services/AdminhtmlService";
 import FrontendService from "../app/Services/FrontendService";
 
+import ContentBlockAdminHtmlService from "../app/Components/Content/Block/adminhtml/Services/BlockService"
+import ContentBlockAdminHtmlGramarketDbRepository from "../app/Components/Content/Block/adminhtml/Repositories/GramarketDbRepository"
+
+import ContentBlockFrontendService from "../app/Components/Content/Block/frontend/Services/BlockService"
+import ContentBlockFrontendGramarketDbRepository from "../app/Components/Content/Block/frontend/Repositories/GramarketDbRepository"
+
 /**
  * IOC Config, please register here your services
  */
@@ -43,7 +49,19 @@ const iocConfig = {
         },
         AdminhtmlService: () => {
             return new AdminhtmlService(new GramarketDbRepository());
+        },
+
+        // Content block admin
+        ContentBlockAdminHtmlService: () => {
+            return new ContentBlockAdminHtmlService(new ContentBlockAdminHtmlGramarketDbRepository)
+        },
+        // Content block frontend
+        ContentBlockFrontendService: () => {
+            return new ContentBlockFrontendService(new ContentBlockFrontendGramarketDbRepository)
         }
+
+
+
     }
 };
 

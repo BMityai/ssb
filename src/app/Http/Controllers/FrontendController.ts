@@ -24,10 +24,9 @@ export default class FrontendController {
     }
 
     public async getBlockContent(request: Request, response: Response, next: NextFunction) {
-        Helper.sleep(5000)
-        Helper.dump(request.query);  // TODO DEBUGGER
         const areaId = lodash.get(request.query, 'id', null);
         const pageType = lodash.get(request.query, 'pageType', 'home_page'); // default "home_page"
+
         const content = await this.service.getBlockContent(request.params.blockName, pageType as string, areaId as number | null);
         return response.json(content);
     }

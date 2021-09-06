@@ -3,9 +3,9 @@ import BaseSchema from 'sosise-core/build/Database/BaseSchema';
 /**
  * If you need more information, see: http://knexjs.org/#Schema
  */
-export default class CreateRegionTable extends BaseSchema {
+export default class CreateContentTable extends BaseSchema {
 
-    protected tableName = 'district';
+    protected tableName = 'content_block_entity';
 
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ export default class CreateRegionTable extends BaseSchema {
     public async up(): Promise<void> {
         await this.dbConnection.schema.createTable(this.tableName, (table) => {
             table.increments('id');
-            table.string('value').unique();
-            table.integer('region_id');
-            table.string('url').unique();
+            table.string('name');
+            table.string('title').nullable();
+            table.integer('block_id').nullable();
+            table.integer('page_type_id').nullable();
+            table.integer('district_id').defaultTo('0');
+            table.boolean('is_enable').defaultTo(true);
             table.timestamps(true);
         });
     }

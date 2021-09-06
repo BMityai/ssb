@@ -3,9 +3,9 @@ import BaseSchema from 'sosise-core/build/Database/BaseSchema';
 /**
  * If you need more information, see: http://knexjs.org/#Schema
  */
-export default class CreateContentTable extends BaseSchema {
+export default class CreateContentBlockPositionDictTable extends BaseSchema {
 
-    protected tableName = 'content';
+    protected tableName = 'content_block_position_dict';
 
     /**
      * Run the migrations.
@@ -13,15 +13,8 @@ export default class CreateContentTable extends BaseSchema {
     public async up(): Promise<void> {
         await this.dbConnection.schema.createTable(this.tableName, (table) => {
             table.increments('id');
-            table.string('text');
-            table.string('url');
-            table.string('image');
-            table.integer('block_id');
-            table.integer('entity_id');
-            table.integer('page_type_id').nullable();
-            table.integer('district_id').defaultTo('0');
-            table.boolean('is_enable').defaultTo(true);
-            table.integer('position');
+            table.integer('page_type_id');
+            table.string('position');
             table.timestamps(true);
         });
     }
