@@ -24,6 +24,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             `SELECT 
             content_block_entity.id AS 'id', 
             content_block_entity.name AS 'name',
+            content_block_entity.title AS 'title',
             content_block_dict.name AS block,
             page_type_dict.value AS pageType,
             content_block_entity.is_enable AS isEnable,
