@@ -36,13 +36,14 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .select([
                 'content_block_entity.id AS id',
                 'content_block_entity.name AS name',
+                'content_block_entity.title AS title',
                 'content_block_dict.name AS block',
                 'page_type_dict.value AS pageType',
                 'content_block_position_dict.position as position',
                 'content_block_entity.is_enable AS isEnable',
                 'content_block_entity.created_at AS createdAt'
             ])
-            //@todo add district filter
+            //@todo add region filter
             .innerJoin('content_block_dict', 'content_block_entity.block_id', 'content_block_dict.id')
             .innerJoin('page_type_dict', 'content_block_entity.page_type_id', 'page_type_dict.id')
             .innerJoin('content_block_position', 'content_block_entity.id', 'content_block_position.content_block_id')

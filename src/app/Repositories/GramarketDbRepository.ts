@@ -36,6 +36,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .select([
                 'content_block_item.id as id',
                 'content_block_item.text as text',
+                'content_block_item.text as text',
                 'content_block_item.url as url',
                 'content_block_item.image as image',
                 'content_block_entity.block_id as blockId',

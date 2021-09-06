@@ -5,7 +5,7 @@ import BaseSchema from 'sosise-core/build/Database/BaseSchema';
  */
 export default class CreateRegionTable extends BaseSchema {
 
-    protected tableName = 'district';
+    protected tableName = 'region';
 
     /**
      * Run the migrations.

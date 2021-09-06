@@ -6,6 +6,7 @@ import GetProductsByContentBlockIdType from "./GetProductsByContentBlockIdType";
 export default class GetContentBlockByPageType {
     id: number;
     name: string;
+    title: string;
     block: string;
     pageType: string;
     position: string;
@@ -30,6 +31,7 @@ export default class GetContentBlockByPageType {
     private setProps() {
         this.id = this.contentBlock.id;
         this.name = this.contentBlock.name;
+        this.title = this.contentBlock.title;
         this.block = this.contentBlock.block;
         this.pageType = this.contentBlock.pageType;
         this.position = this.contentBlock.position;

@@ -16,11 +16,7 @@ export default class CreateContentTable extends BaseSchema {
             table.string('text');
             table.string('url');
             table.string('image');
-            table.integer('block_id');
             table.integer('content_block_id');
-            table.integer('page_type_id').nullable();
-            table.integer('district_id').defaultTo('0');
-            table.boolean('is_enable').defaultTo(true);
             table.integer('position');
             table.timestamps(true);
         });
