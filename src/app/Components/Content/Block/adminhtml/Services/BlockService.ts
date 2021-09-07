@@ -29,5 +29,12 @@ export default class AdminhtmlService {
         return await this.gramarketDbRepository.getBlockById(blockId);
     }
 
+    /**
+     * Get block options
+     */
+    public async getBlockDictOptions() {
+        return await this.gramarketDbRepository.getBlockDictOptions();
+    }
+
 
 }

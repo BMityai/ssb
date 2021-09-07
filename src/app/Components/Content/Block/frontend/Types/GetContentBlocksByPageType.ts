@@ -43,7 +43,6 @@ export default class GetContentBlockByPageType {
     /**
      * Set content block items
      */
-
     public setContentBlockItems(items: GetItemsByContentBlockIdType[]): void {
         this.items = items;
     }

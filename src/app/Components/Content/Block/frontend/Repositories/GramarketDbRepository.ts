@@ -46,9 +46,9 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             //@todo add region filter
             .innerJoin('content_block_dict', 'content_block_entity.block_id', 'content_block_dict.id')
             .innerJoin('page_type_dict', 'content_block_entity.page_type_id', 'page_type_dict.id')
-            .innerJoin('content_block_position', 'content_block_entity.id', 'content_block_position.content_block_id')
-            .innerJoin('content_block_position_dict', 'content_block_position.position_id', 'content_block_position_dict.id')
-            .where('page_type_dict.value', pageType);
+            .innerJoin('content_block_position_dict', 'content_block_entity.position_id', 'content_block_position_dict.id')
+            .where('page_type_dict.value', pageType)
+            .where('content_block_entity.is_enable', true);
 
         // Chack is empty
         if (!blocks.length) {
@@ -71,7 +71,6 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
         return await this.dbConnection.client.table('content_block_item')
             .select([
                 'content_block_item.id as id',
-                'content_block_item.text as text',
                 'content_block_item.url as url',
                 'content_block_item.image as image',
                 'content_block_item.position as position'

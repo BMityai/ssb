@@ -23,5 +23,10 @@ router.get(`/api/frontend/${version}/admin/content/block/:blockId`, adminAuthMid
     controller.getBlockById(request, response, next);
 });
 
+// Get content block options
+router.get(`/api/frontend/${version}/admin/content/block_dict/options`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
+    controller.getBlockDictOptions(request, response, next);
+});
+
 
 export default router;
