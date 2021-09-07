@@ -29,6 +29,6 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get content block position options
      */
-    getContentBlockPositionDictOptions(): Promise<GetContentBlockPositionDictOptionsType[]>;
+    getContentBlockPositionDictOptions();
 
 }

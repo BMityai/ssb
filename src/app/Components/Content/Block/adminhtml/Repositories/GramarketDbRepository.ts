@@ -7,6 +7,7 @@ import GetItemsByContentBlockIdType from '../Types/GetItemsByContentBlockIdType'
 import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParamsConverterUnifier';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
 import GetContentBlockPositionDictOptionsType from '../Types/GetContentBlockPositionDictOptionsType';
+import Helper from 'sosise-core/build/Helper/Helper';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
 
@@ -71,7 +72,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
                 'content_block_entity.created_at AS createdAt',
                 'content_block_dict.id AS blockId',
                 'content_block_position_dict.id AS positionId',
-                'page_type_dict.value AS pageTypeId',
+                'page_type_dict.id AS pageTypeId',
             ])
             .innerJoin('content_block_dict', 'content_block_entity.block_id', 'content_block_dict.id')
             .innerJoin('page_type_dict', 'content_block_entity.page_type_id', 'page_type_dict.id')
@@ -126,11 +127,15 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             ])
             .orderBy('id');
 
-        const positions = new Array();
+        const positions = {};
         for(const position of result) {
-            positions.push(new GetContentBlockPositionDictOptionsType(position));
+            console.log(position)
+            if(!positions[position.pageTypeId]) {
+                positions[position.pageTypeId] = new Array();
+            } 
+            positions[position.pageTypeId].push({id: position.id, value: position.value});
         }
-        return positions;
+        return positions as GetContentBlockPositionDictOptionsType[];
     }
 
     /**

@@ -41,7 +41,7 @@ export default class AdminhtmlService {
         }
 
 
-        console.log(555)
+        console.log(result.positionOptions)
 
         return result;
     }

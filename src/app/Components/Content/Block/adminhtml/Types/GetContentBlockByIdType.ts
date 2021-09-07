@@ -1,7 +1,7 @@
 import Helper from "sosise-core/build/Helper/Helper";
 import GetItemsByContentBlockIdType from "./GetItemsByContentBlockIdType";
 
-export default class GetContentBlocksByIdType {
+export default class GetContentBlockByIdType {
     public id: number;
     public name: string;
     public title: string;
