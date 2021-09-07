@@ -25,7 +25,7 @@ router.get(`/api/frontend/${version}/admin/content/block/:blockId`, adminAuthMid
 
 // Get content block options
 router.get(`/api/frontend/${version}/admin/content/block_dict/options`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
-    controller.getBlockDictOptions(request, response, next);
+    controller.getBlockOptions(request, response, next);
 });
 
 

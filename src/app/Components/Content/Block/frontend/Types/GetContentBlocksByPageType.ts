@@ -37,7 +37,6 @@ export default class GetContentBlockByPageType {
         this.position = this.contentBlock.position;
         this.isEnable = this.contentBlock.isEnable;
         this.createdAt = this.contentBlock.createdAt;
-
     }
     
     /**

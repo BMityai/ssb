@@ -2,6 +2,7 @@ import Helper from "sosise-core/build/Helper/Helper";
 import GramarketDbRepositoryInterface from "../Repositories/GramarketDbRepositoryInterface";
 import PrimevueTableParamsConverterUnifier from "../Unifiers/PrimevueTableParamsConverterUnifier";
 import { result } from "lodash";
+import GetBlockOptionsType from "../Types/GetBlockOptionsType";
 
 export default class AdminhtmlService {
     protected gramarketDbRepository: GramarketDbRepositoryInterface
@@ -32,8 +33,17 @@ export default class AdminhtmlService {
     /**
      * Get block options
      */
-    public async getBlockDictOptions() {
-        return await this.gramarketDbRepository.getBlockDictOptions();
+    public async getBlockOptions(): Promise <GetBlockOptionsType> {
+        const result = {
+            blockOptions: await this.gramarketDbRepository.getBlockDictOptions(),
+            pageTypeOptions: await this.gramarketDbRepository.getPageTypeOptions(),
+            positionOptions: await this.gramarketDbRepository.getContentBlockPositionDictOptions()
+        }
+
+
+        console.log(555)
+
+        return result;
     }
 
 

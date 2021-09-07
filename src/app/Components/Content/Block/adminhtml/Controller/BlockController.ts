@@ -32,9 +32,9 @@ export default class BlockController {
         }
     }
 
-    public async getBlockDictOptions(request: Request, response: Response, next: NextFunction) {
+    public async getBlockOptions(request: Request, response: Response, next: NextFunction) {
         try {
-            const result = await this.service.getBlockDictOptions();
+            const result = await this.service.getBlockOptions();
             return response.send(result);
         } catch (error) {
             next(error);

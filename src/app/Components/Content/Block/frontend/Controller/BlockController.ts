@@ -18,7 +18,6 @@ export default class BlockController {
     public async getContentBlockByPageType(request: Request, response: Response, next: NextFunction) {
         try {
             const result = await this.service.getContentBlockByPageType(request.params.pageType);
-            console.log(request.params.pageType)
             console.log(result)
             return response.send(result);
         } catch (error) {

@@ -1,11 +1,12 @@
 import Database from 'sosise-core/build/Database/Database';
 import databaseConfig from '../Config/database';
-import GetBlockDictOptionsType from '../Types/GetBlockDictOptionsType';
+import GetContentBlockOptionsType from '../Types/GetContentBlockOptionsType';
 import GetContentBlocksByIdType from '../Types/GetContentBlockByIdType';
 import GetContentBlocksType from '../Types/GetContentBlocksType';
 import GetItemsByContentBlockIdType from '../Types/GetItemsByContentBlockIdType';
 import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParamsConverterUnifier';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
+import GetContentBlockPositionDictOptionsType from '../Types/GetContentBlockPositionDictOptionsType';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
 
@@ -87,16 +88,49 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     }
 
     /**
-     * Get content block by id
+     * Get content block dict options
      */
-    public async getBlockDictOptions(): Promise<GetBlockDictOptionsType[]> {
+    public async getBlockDictOptions(): Promise<GetContentBlockOptionsType[]> {
         const result = await this.dbConnection.client.table('content_block_dict')
             .select([
                 'content_block_dict.id AS id',
                 'content_block_dict.name AS value',
             ])
             .orderBy('id');
-        return result as GetBlockDictOptionsType[];
+        return result as GetContentBlockOptionsType[];
+    }
+
+    /**
+     * Get page type dict options
+     */
+    public async getPageTypeOptions(): Promise<GetContentBlockOptionsType[]> {
+        const result = await this.dbConnection.client.table('page_type_dict')
+            .select([
+                'page_type_dict.id AS id',
+                'page_type_dict.value AS value',
+            ])
+            .orderBy('id');
+        return result as GetContentBlockOptionsType[];
+    }
+
+    /**
+     * Get content block position options
+     */
+    public async getContentBlockPositionDictOptions(): Promise<GetContentBlockPositionDictOptionsType[]> {
+        const result = await this.dbConnection.client.table('content_block_position_dict')
+            .select([
+                'content_block_position_dict.id AS id',
+                'content_block_position_dict.position AS value',
+                'content_block_position_dict.page_type_id AS pageTypeId',
+
+            ])
+            .orderBy('id');
+
+        const positions = new Array();
+        for(const position of result) {
+            positions.push(new GetContentBlockPositionDictOptionsType(position));
+        }
+        return positions;
     }
 
     /**

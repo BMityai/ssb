@@ -1,7 +1,8 @@
-import GetBlockDictOptionsType from "../Types/GetBlockDictOptionsType";
 import GetContentBlocksByIdType from "../Types/GetContentBlockByIdType";
 import GetContentBlocksType from "../Types/GetContentBlocksType";
 import PrimevueTableParamsConverterUnifier from "../Unifiers/PrimevueTableParamsConverterUnifier";
+import GetContentBlockOptionsType from '../Types/GetContentBlockOptionsType';
+import GetContentBlockPositionDictOptionsType from "../Types/GetContentBlockPositionDictOptionsType";
 
 export default interface GramarketDbRepositoryInterface {
 
@@ -18,5 +19,16 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get content block options
      */
-    getBlockDictOptions(): Promise<GetBlockDictOptionsType[]>;
+    getBlockDictOptions(): Promise<GetContentBlockOptionsType[]>;
+
+    /**
+     * Get page type dict options
+     */
+    getPageTypeOptions(): Promise<GetContentBlockOptionsType[]>;
+
+    /**
+     * Get content block position options
+     */
+    getContentBlockPositionDictOptions(): Promise<GetContentBlockPositionDictOptionsType[]>;
+
 }
