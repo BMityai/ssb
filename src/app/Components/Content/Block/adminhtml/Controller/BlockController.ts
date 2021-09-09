@@ -13,6 +13,9 @@ export default class BlockController {
         this.service = IOC.make('ContentBlockAdminHtmlService');
     }
 
+    /**
+     * Get all content blocks
+     */
     public async getContentBlocks(request: Request, response: Response, next: NextFunction) {
         try {
             const filterParams = new PrimevueTableParamsConverterUnifier(request.query)
@@ -23,6 +26,9 @@ export default class BlockController {
         }
     }
 
+    /**
+     * Get content block by id
+     */
     public async getBlockById(request: Request, response: Response, next: NextFunction) {
         try {
             const result = await this.service.getBlockById(request.params.blockId);
@@ -32,6 +38,23 @@ export default class BlockController {
         }
     }
 
+    /**
+     * Delete block by id
+     */
+    public async deleteBlockById(request: Request, response: Response, next: NextFunction) {
+
+        console.log(request.params.blockId)
+        try {
+            const result = await this.service.getBlockById(request.params.blockId);
+            return response.send(result);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    /**
+     * Get options for edit block
+     */
     public async getBlockOptions(request: Request, response: Response, next: NextFunction) {
         try {
             const result = await this.service.getBlockOptions();
