@@ -29,6 +29,11 @@ router.delete(`/api/frontend/${version}/admin/content/block/:blockId`, adminAuth
     controller.deleteBlockById(request, response, next);
 });
 
+// Save or Create block by id
+router.post(`/api/frontend/${version}/admin/content/block/save`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
+    controller.updateOrCreateContentBlock(request, response, next);
+});
+
 // Get content block options
 router.get(`/api/frontend/${version}/admin/content/block_dict/options`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
     controller.getBlockOptions(request, response, next);

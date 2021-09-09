@@ -42,14 +42,28 @@ export default class BlockController {
      * Delete block by id
      */
     public async deleteBlockById(request: Request, response: Response, next: NextFunction) {
-
-        console.log(request.params.blockId)
         try {
             const result = await this.service.deleteBlockById(request.params.blockId);
             return response.send(result);
         } catch (error) {
             next(error);
         }
+    }
+
+    /**
+     * Update ot create content block
+     */
+    public async updateOrCreateContentBlock(request: Request, response: Response, next: NextFunction) {
+        // UpdateOrCreateUnifier
+
+
+        
+        // try {
+        //     const result = await this.service.deleteBlockById(request.params.blockId);
+        //     return response.send(result);
+        // } catch (error) {
+        //     next(error);
+        // }
     }
 
     /**
