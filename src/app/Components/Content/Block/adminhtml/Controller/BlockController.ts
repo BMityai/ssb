@@ -45,7 +45,7 @@ export default class BlockController {
 
         console.log(request.params.blockId)
         try {
-            const result = await this.service.getBlockById(request.params.blockId);
+            const result = await this.service.deleteBlockById(request.params.blockId);
             return response.send(result);
         } catch (error) {
             next(error);

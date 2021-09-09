@@ -17,6 +17,21 @@ export default interface GramarketDbRepositoryInterface {
     getBlockById(blockId: string): Promise<GetContentBlocksByIdType>;
 
     /**
+     * Delete block by id
+     */
+    deleteBlockById(blockId: string): Promise<void>;
+
+    /**
+     * Delete block items block by id
+     */
+    deleteItemsByBlockId(blockId: string): Promise<void>;
+
+    /**
+     * Get images for delete
+     */
+    getImagesForDelete(blockId: string): Promise<string[]>;
+
+    /**
      * Get content block options
      */
     getBlockDictOptions(): Promise<GetContentBlockOptionsType[]>;

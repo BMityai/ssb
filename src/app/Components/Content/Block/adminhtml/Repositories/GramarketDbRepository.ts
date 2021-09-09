@@ -62,7 +62,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Get content block by id
      */
-    public async getBlockById(blockId: string): Promise <GetContentBlocksByIdType> {
+    public async getBlockById(blockId: string): Promise<GetContentBlocksByIdType> {
         const result = await this.dbConnection.client.table('content_block_entity')
             .select([
                 'content_block_entity.id AS id',
@@ -86,6 +86,38 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
         contentBlock.setItems(await this.getItemsByContentBlockId(contentBlock.id))
 
         return contentBlock;
+    }
+
+    /**
+     * Delete content block by id
+     */
+    public async deleteBlockById(blockId: string): Promise<void> {
+
+    }
+
+    /**
+     * Delete content block by id
+     */
+    public async deleteItemsByBlockId(blockId: string): Promise<void> {
+
+    }
+
+    /**
+     * Delete content block by id
+     */
+    public async getImagesForDelete(blockId: string): Promise<string[]> {
+
+        const images = await this.dbConnection.client
+            .select('image')
+            .table('content_block_item')
+            .where('content_block_id', blockId);
+        
+        // prepare result
+        const result = new Array();
+        for(const item of images) {
+            result.push(item.image);
+        }
+        return result
     }
 
     /**
@@ -128,12 +160,12 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .orderBy('id');
 
         const positions = {};
-        for(const position of result) {
+        for (const position of result) {
             console.log(position)
-            if(!positions[position.pageTypeId]) {
+            if (!positions[position.pageTypeId]) {
                 positions[position.pageTypeId] = new Array();
-            } 
-            positions[position.pageTypeId].push({id: position.id, value: position.value});
+            }
+            positions[position.pageTypeId].push({ id: position.id, value: position.value });
         }
         return positions as GetContentBlockPositionDictOptionsType[];
     }
@@ -172,7 +204,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * 
      */
-     private async getItemsByContentBlockId(blockId: number): Promise<GetItemsByContentBlockIdType[]> {
+    private async getItemsByContentBlockId(blockId: number): Promise<GetItemsByContentBlockIdType[]> {
         return await this.dbConnection.client.table('content_block_item')
             .select([
                 'content_block_item.id as id',

@@ -31,6 +31,24 @@ export default class AdminhtmlService {
     }
 
     /**
+     * Delete block by id
+     */
+    public async deleteBlockById(blockId: string) {
+         
+        // Get images for delete
+        const images = await this.gramarketDbRepository.getImagesForDelete(blockId);
+        
+        const promise = new Array();
+        promise.push(this.gramarketDbRepository.deleteBlockById(blockId));
+        promise.push(this.gramarketDbRepository.deleteItemsByBlockId(blockId));
+        
+        Promise.all(promise);
+
+
+        // + удалить файлы
+    }
+
+    /**
      * Get block options
      */
     public async getBlockOptions(): Promise <GetBlockOptionsType> {
