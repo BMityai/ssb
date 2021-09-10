@@ -26,7 +26,7 @@ export default class UpdateOrCreateContentBlockUnifier {
      * Request data validation
      */
     private validate() {
-        console.log(this.params)
+        console.log(JSON.parse(this.params.items[0]).image.buffer)
         // // Create validator
         // const validator = new Validator(this.params, {
         //     jwt: ['required', 'string', 'min:20'],

@@ -1,21 +1,12 @@
 import express, { request } from 'express';
 import { Request, Response, NextFunction } from 'express';
 import FrontendController from '../app/Http/Controllers/FrontendController';
-import cors from 'cors';
 import bodyParser from 'body-parser';
 const router = express.Router();
 
 
 import ContentBlockRoute from '../app/Components/Content/Block/frontend/Routes/api'
 
-
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 
-}
-
-router.use(cors(corsOptions))
-router.use(bodyParser.json())
 
 const version = 'v1';
 

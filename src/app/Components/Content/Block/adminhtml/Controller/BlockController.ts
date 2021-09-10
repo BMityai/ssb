@@ -3,7 +3,7 @@ import Helper from 'sosise-core/build/Helper/Helper';
 import IOC from 'sosise-core/build/ServiceProviders/IOC';
 import BlockService from '../Services/BlockService';
 import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParamsConverterUnifier';
-
+import UpdateOrCreateContentBlockUnifier from '../Unifiers/UpdateOrCreateContentBlockUnifier';
 
 export default class BlockController {
 
@@ -54,7 +54,7 @@ export default class BlockController {
      * Update ot create content block
      */
     public async updateOrCreateContentBlock(request: Request, response: Response, next: NextFunction) {
-        // UpdateOrCreateUnifier
+        // const updateOrCreateContentBlockUnifier = new UpdateOrCreateContentBlockUnifier(request.query)
 
 
         

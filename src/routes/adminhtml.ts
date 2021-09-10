@@ -1,7 +1,6 @@
 import express, { request } from 'express';
 import { Request, Response, NextFunction } from 'express';
 import AdminhtmlController from '../app/Http/Controllers/AdminhtmlController';
-import cors from 'cors';
 import bodyParser from 'body-parser';
 const router = express.Router();
 import AdminAuthMiddleware from '../app/Http/Middlewares/AdminAuthMiddleware';
@@ -9,15 +8,6 @@ import AdminAuthMiddleware from '../app/Http/Middlewares/AdminAuthMiddleware';
 
 import ContentBlockRoute from '../app/Components/Content/Block/adminhtml/Routes/api'
 
-
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200
-}
-
-router.use(cors(corsOptions));
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
 
 const version = 'v1';
 
