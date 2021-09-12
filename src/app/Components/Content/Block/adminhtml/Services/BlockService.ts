@@ -57,10 +57,6 @@ export default class AdminhtmlService {
             pageTypeOptions: await this.gramarketDbRepository.getPageTypeOptions(),
             positionOptions: await this.gramarketDbRepository.getContentBlockPositionDictOptions()
         }
-
-
-        console.log(result.positionOptions)
-
         return result;
     }
 

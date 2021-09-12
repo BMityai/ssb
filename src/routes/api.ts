@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response } from 'express';
-import Helper from 'sosise-core/build/Helper/Helper';
 import frontendRouter from './frontend'
 import adminhtmlRouter from './adminhtml'
 import cors from 'cors';
@@ -12,8 +11,10 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-router.use(express.json())
-router.use(express.urlencoded({ extended: false }))
+router.use(express.json({limit: '10mb'}))
+router.use(express.urlencoded({ extended: true, limit: '10mb', parameterLimit: 50000 }))
+
+
 
 router.use(cors(corsOptions));
 

@@ -1,13 +1,12 @@
 import express, { request } from 'express';
 import { Request, Response, NextFunction } from 'express';
 import AdminhtmlController from '../app/Http/Controllers/AdminhtmlController';
-import bodyParser from 'body-parser';
 const router = express.Router();
 import AdminAuthMiddleware from '../app/Http/Middlewares/AdminAuthMiddleware';
 
 
 import ContentBlockRoute from '../app/Components/Content/Block/adminhtml/Routes/api'
-
+import UploaderController from '../app/Components/Uploader/adminhtml/Routes/api'
 
 const version = 'v1';
 
@@ -31,5 +30,8 @@ router.get(`/api/frontend/${version}/admin/user`, (request: Request, response: R
 
 // Dashboard -> Content -> Block
 router.use(ContentBlockRoute)
+
+// Files uploader
+router.use(UploaderController)
 
 export default router;

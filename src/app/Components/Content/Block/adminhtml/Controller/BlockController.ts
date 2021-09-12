@@ -4,6 +4,7 @@ import IOC from 'sosise-core/build/ServiceProviders/IOC';
 import BlockService from '../Services/BlockService';
 import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParamsConverterUnifier';
 import UpdateOrCreateContentBlockUnifier from '../Unifiers/UpdateOrCreateContentBlockUnifier';
+import multiparty from 'multiparty';
 
 export default class BlockController {
 
@@ -55,8 +56,8 @@ export default class BlockController {
      */
     public async updateOrCreateContentBlock(request: Request, response: Response, next: NextFunction) {
         // const updateOrCreateContentBlockUnifier = new UpdateOrCreateContentBlockUnifier(request.query)
-
-
+        console.log(request.query)
+       
         
         // try {
         //     const result = await this.service.deleteBlockById(request.params.blockId);

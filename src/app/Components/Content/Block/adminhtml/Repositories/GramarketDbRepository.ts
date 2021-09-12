@@ -161,7 +161,6 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
 
         const positions = {};
         for (const position of result) {
-            console.log(position)
             if (!positions[position.pageTypeId]) {
                 positions[position.pageTypeId] = new Array();
             }
