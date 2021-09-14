@@ -4,12 +4,24 @@ import Controller from '../Controller/UploaderController';
 const router = express.Router();
 import AdminAuthMiddleware from '../../../../Http/Middlewares/AdminAuthMiddleware';
 import routesConfig from '../../../../../config/routes';
-
-
+import multer from 'multer';
 
 const version = routesConfig.frontend.apiVersion;
 
-// AdminhtmlController
+
+const storage = multer.diskStorage({
+    destination: 'storage/public/tmp',
+    filename: function (req, file, callback) {
+        const originalNameSplit = file.originalname.split('.')
+        const format = originalNameSplit[originalNameSplit.length - 1]
+        callback(null, `${Date.now()}.${format}`);
+    }
+});
+
+const upload = multer({ storage: storage })
+
+
+// UploaderController
 const controller = new Controller();
 
 
@@ -17,10 +29,10 @@ const controller = new Controller();
 const adminAuthMiddleware = new AdminAuthMiddleware();
 
 // Get content blocks
-router.post(`/api/frontend/${version}/admin/upload`, (request: Request, response: Response, next: NextFunction) => {
-    const  image  = request.body;
-    console.log(request.files)
-    response.json({ file: request.files })
+router.post(`/api/frontend/${version}/admin/upload`, upload.single('file'), (request: Request, response: Response, next: NextFunction) => {
+    const image = request.body;
+    console.log(request.file);
+    response.json({ file: request.file });
     // controller.saveFileToTmpFolder(request, response, next);
     // response.sendStatus(200)
 });
