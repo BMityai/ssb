@@ -17,7 +17,7 @@
     "eccheck": "./node_modules/.bin/editorconfig-checker -exclude \"(node_modules|build)\"",
     "test": "jest -c ./build/config/jest.js --coverage"
   },
-  "author": "Igor Kov",
+  "author": "Medet Bakytzhan",
   "license": "MIT",
   "dependencies": {
     "@sentry/node": "^5.29.2",

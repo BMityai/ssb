@@ -5,16 +5,18 @@ const router = express.Router();
 import AdminAuthMiddleware from '../../../../Http/Middlewares/AdminAuthMiddleware';
 import routesConfig from '../../../../../config/routes';
 import multer from 'multer';
+import Helper from 'sosise-core/build/Helper/Helper';
+import adminUploaderConfig from '../Config/uploaderConfig';
 
 const version = routesConfig.frontend.apiVersion;
 
 
 const storage = multer.diskStorage({
-    destination: 'storage/public/tmp',
+    destination: `${adminUploaderConfig.mediaTmpPath}/images`,
     filename: function (req, file, callback) {
         const originalNameSplit = file.originalname.split('.')
         const format = originalNameSplit[originalNameSplit.length - 1]
-        callback(null, `${Date.now()}.${format}`);
+        callback(null, `${originalNameSplit[0]}-${Date.now()}.${format}`);
     }
 });
 
@@ -29,13 +31,15 @@ const controller = new Controller();
 const adminAuthMiddleware = new AdminAuthMiddleware();
 
 // Get content blocks
-router.post(`/api/frontend/${version}/admin/upload`, upload.single('file'), (request: Request, response: Response, next: NextFunction) => {
-    const image = request.body;
-    console.log(request.file);
-    response.json({ file: request.file });
-    // controller.saveFileToTmpFolder(request, response, next);
-    // response.sendStatus(200)
-});
+router.post(
+    `/api/frontend/${version}/admin/upload`,
+    upload.single('file'),
+    adminAuthMiddleware.handle,
+    (request: Request, response: Response, next: NextFunction) => {
+
+        response.send(`/${request.file?.path}`)
+    }
+);
 
 
 export default router;
