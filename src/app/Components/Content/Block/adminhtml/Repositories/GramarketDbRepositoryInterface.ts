@@ -46,4 +46,6 @@ export default interface GramarketDbRepositoryInterface {
      */
     getContentBlockPositionDictOptions();
 
+    getAttributeSetOptions();
+
 }

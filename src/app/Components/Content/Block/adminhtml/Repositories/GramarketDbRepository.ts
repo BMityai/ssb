@@ -8,6 +8,7 @@ import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParams
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
 import GetContentBlockPositionDictOptionsType from '../Types/GetContentBlockPositionDictOptionsType';
 import Helper from 'sosise-core/build/Helper/Helper';
+import AttributeSetType from '../../../AttributeSet/Types/AttributeSetType';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
 
@@ -79,11 +80,10 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .innerJoin('content_block_position_dict', 'content_block_entity.position_id', 'content_block_position_dict.id')
             .where('content_block_entity.id', blockId)
             .first();
-
         // Typecast content block
         const contentBlock = new GetContentBlocksByIdType(result);
 
-        contentBlock.setItems(await this.getItemsByContentBlockId(contentBlock.id))
+        contentBlock.setItems(await this.getItemsByContentBlockId(contentBlock.id));
 
         return contentBlock;
     }
@@ -111,10 +111,10 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             .select('image')
             .table('content_block_item')
             .where('content_block_id', blockId);
-        
+
         // prepare result
         const result = new Array();
-        for(const item of images) {
+        for (const item of images) {
             result.push(item.image);
         }
         return result
@@ -167,6 +167,15 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             positions[position.pageTypeId].push({ id: position.id, value: position.value });
         }
         return positions as GetContentBlockPositionDictOptionsType[];
+    }
+
+    /**
+     * Get attribute set options
+     */
+    public async getAttributeSetOptions(): Promise<AttributeSetType[]> {
+        const result = await this.dbConnection.client.table('attribute_set')
+            .select(['id', 'title'])
+        return result;
     }
 
     /**

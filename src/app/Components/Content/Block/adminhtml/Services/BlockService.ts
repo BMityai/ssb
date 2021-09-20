@@ -55,8 +55,10 @@ export default class AdminhtmlService {
         const result = {
             blockOptions: await this.gramarketDbRepository.getBlockDictOptions(),
             pageTypeOptions: await this.gramarketDbRepository.getPageTypeOptions(),
-            positionOptions: await this.gramarketDbRepository.getContentBlockPositionDictOptions()
+            positionOptions: await this.gramarketDbRepository.getContentBlockPositionDictOptions(),
+            attributeSetOptions: await this.gramarketDbRepository.getAttributeSetOptions()
         }
+        console.log(result)
         return result;
     }
 

@@ -35,7 +35,7 @@ router.post(`/api/frontend/${version}/admin/content/block/save`, adminAuthMiddle
 });
 
 // Get content block options
-router.get(`/api/frontend/${version}/admin/content/block_dict/options`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
+router.get(`/api/frontend/${version}/admin/content/block_options`, adminAuthMiddleware.handle, (request: Request, response: Response, next: NextFunction) => {
     controller.getBlockOptions(request, response, next);
 });
 
