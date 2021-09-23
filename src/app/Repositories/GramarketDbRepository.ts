@@ -3,9 +3,9 @@ import Database from 'sosise-core/build/Database/Database';
 import Helper from 'sosise-core/build/Helper/Helper';
 import databaseConfig from '../../config/database';
 import AllCategoriesType from '../Types/AllCategoriesType';
-import GetContentBlocksType from '../Components/Content/Block/adminhtml/Types/GetContentBlocksType';
 import PrimevueTableParamsConverterUnifier from '../Components/Content/Block/adminhtml/Unifiers/PrimevueTableParamsConverterUnifier';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
+import ContentBlockForListingType from '../Components/Content/Block/adminhtml/Types/ContentBlockForListingType';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
 
@@ -77,7 +77,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Get all blocks for admin panel listing
      */
-    public async getBlocks(filterParams: PrimevueTableParamsConverterUnifier, getCount = false): Promise<GetContentBlocksType[]> {
+    public async getBlocks(filterParams: PrimevueTableParamsConverterUnifier, getCount = false): Promise<ContentBlockForListingType[]> {
         let sqlString =
             `SELECT 
             content_block_entity.id AS 'id', 

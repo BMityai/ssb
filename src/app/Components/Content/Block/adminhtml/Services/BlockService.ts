@@ -1,8 +1,8 @@
-import Helper from "sosise-core/build/Helper/Helper";
 import GramarketDbRepositoryInterface from "../Repositories/GramarketDbRepositoryInterface";
 import PrimevueTableParamsConverterUnifier from "../Unifiers/PrimevueTableParamsConverterUnifier";
-import { result } from "lodash";
 import GetBlockOptionsType from "../Types/GetBlockOptionsType";
+import GetContentBlocksType from "../Types/GetContentBlocksType";
+import GetContentBlockByIdType from "../Types/GetContentBlockByIdType";
 
 export default class AdminhtmlService {
     protected gramarketDbRepository: GramarketDbRepositoryInterface
@@ -14,19 +14,24 @@ export default class AdminhtmlService {
         this.gramarketDbRepository = repository;
     }
 
-    public async getContentBlocks(filterParams: PrimevueTableParamsConverterUnifier) {
-        const promise = new Array();
-        promise.push(this.gramarketDbRepository.getBlocks(filterParams));
-        promise.push(this.gramarketDbRepository.getBlocks(filterParams, true));
-        const promiseResult = await Promise.allSettled(promise) as any;
-        
-        return {blocks: promiseResult[0].value, totalBlocks: promiseResult[1].value};
+    /**
+     * Get content blocks for listing 
+     */
+    public async getContentBlocks(filterParams: PrimevueTableParamsConverterUnifier): Promise<GetContentBlocksType> {
+        // Init promises
+        const getBlocksPromises = new Array();
+
+        getBlocksPromises.push(this.gramarketDbRepository.getBlocks(filterParams));
+        getBlocksPromises.push(this.gramarketDbRepository.getBlocks(filterParams, true));
+        const promiseResult = await Promise.allSettled(getBlocksPromises) as any;
+
+        return { blocks: promiseResult[0].value, totalBlocks: promiseResult[1].value.length };
     }
 
     /**
      * Get block by id
      */
-    public async getBlockById(blockId: string) {
+    public async getBlockById(blockId: string): Promise<GetContentBlockByIdType> {
         return await this.gramarketDbRepository.getBlockById(blockId);
     }
 
@@ -34,14 +39,14 @@ export default class AdminhtmlService {
      * Delete block by id
      */
     public async deleteBlockById(blockId: string) {
-         
+
         // Get images for delete
         const images = await this.gramarketDbRepository.getImagesForDelete(blockId);
-        
+
         const promise = new Array();
         promise.push(this.gramarketDbRepository.deleteBlockById(blockId));
         promise.push(this.gramarketDbRepository.deleteItemsByBlockId(blockId));
-        
+
         Promise.all(promise);
 
 
@@ -51,7 +56,7 @@ export default class AdminhtmlService {
     /**
      * Get block options
      */
-    public async getBlockOptions(): Promise <GetBlockOptionsType> {
+    public async getBlockOptions(): Promise<GetBlockOptionsType> {
         const result = {
             blockOptions: await this.gramarketDbRepository.getBlockDictOptions(),
             pageTypeOptions: await this.gramarketDbRepository.getPageTypeOptions(),
@@ -61,6 +66,4 @@ export default class AdminhtmlService {
         console.log(result)
         return result;
     }
-
-
 }

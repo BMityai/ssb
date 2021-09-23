@@ -1,7 +1,8 @@
-import GetContentBlocksByIdType from "../Types/GetContentBlockByIdType";
-import GetContentBlocksType from "../Types/GetContentBlocksType";
+import GetContentBlockByIdType from "../Types/GetContentBlockByIdType";
 import PrimevueTableParamsConverterUnifier from "../Unifiers/PrimevueTableParamsConverterUnifier";
 import GetContentBlockOptionsType from '../Types/GetContentBlockOptionsType';
+import ContentBlockForListingType from "../Types/ContentBlockForListingType";
+import AttributeSetType from "../../../AttributeSet/Types/AttributeSetType";
 import GetContentBlockPositionDictOptionsType from "../Types/GetContentBlockPositionDictOptionsType";
 
 export default interface GramarketDbRepositoryInterface {
@@ -9,12 +10,12 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get all content blocks for admin panel list
      */
-    getBlocks(filterParams: PrimevueTableParamsConverterUnifier, getCount?: boolean): Promise<GetContentBlocksType[]>;
+    getBlocks(filterParams: PrimevueTableParamsConverterUnifier, applyPaginate?: boolean): Promise<ContentBlockForListingType[]>;
 
     /**
      * Get content block by id
      */
-    getBlockById(blockId: string): Promise<GetContentBlocksByIdType>;
+    getBlockById(blockId: string): Promise<GetContentBlockByIdType>;
 
     /**
      * Delete block by id
@@ -44,8 +45,10 @@ export default interface GramarketDbRepositoryInterface {
     /**
      * Get content block position options
      */
-    getContentBlockPositionDictOptions();
+    getContentBlockPositionDictOptions(): Promise<GetContentBlockPositionDictOptionsType[]>;
 
-    getAttributeSetOptions();
-
+    /**
+     * Get attribute set options
+     */
+    getAttributeSetOptions(): Promise<AttributeSetType[]>;
 }

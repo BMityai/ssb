@@ -2,13 +2,13 @@ import Database from 'sosise-core/build/Database/Database';
 import databaseConfig from '../Config/database';
 import GetContentBlockOptionsType from '../Types/GetContentBlockOptionsType';
 import GetContentBlocksByIdType from '../Types/GetContentBlockByIdType';
-import GetContentBlocksType from '../Types/GetContentBlocksType';
 import GetItemsByContentBlockIdType from '../Types/GetItemsByContentBlockIdType';
 import PrimevueTableParamsConverterUnifier from '../Unifiers/PrimevueTableParamsConverterUnifier';
 import GramarketDbRepositoryInterface from './GramarketDbRepositoryInterface';
 import GetContentBlockPositionDictOptionsType from '../Types/GetContentBlockPositionDictOptionsType';
 import Helper from 'sosise-core/build/Helper/Helper';
 import AttributeSetType from '../../../AttributeSet/Types/AttributeSetType';
+import ContentBlockForListingType from '../Types/ContentBlockForListingType';
 
 export default class GramarketDbRepository implements GramarketDbRepositoryInterface {
 
@@ -24,7 +24,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Get all blocks for admin panel listing
      */
-    public async getBlocks(filterParams: PrimevueTableParamsConverterUnifier, getCount = false): Promise<GetContentBlocksType[]> {
+    public async getBlocks(filterParams: PrimevueTableParamsConverterUnifier, applyPaginate = false): Promise<ContentBlockForListingType[]> {
         let sqlString =
             `SELECT 
             content_block_entity.id AS 'id', 
@@ -48,15 +48,12 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
 
         sqlString = this.applySort(sqlString, filterParams);
 
-        if (!getCount) {
+        if (!applyPaginate) {
             sqlString = this.applyPaginate(sqlString, filterParams);
         }
 
         const result = await this.dbConnection.client.raw(sqlString);
 
-        if (getCount) {
-            return result[0].length;
-        }
         return result[0];
     }
 
@@ -181,7 +178,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Apply primevue table filters
      */
-    private applyFilters(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier) {
+    private applyFilters(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier): string {
         let fitIteration = true;
         for (const filter of filterParams.filters) {
 
@@ -195,7 +192,7 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Apply primevue sort (default sort by id)
      */
-    private applySort(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier) {
+    private applySort(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier): string {
         sqlString += ` ORDER BY ${filterParams.sortField} ${filterParams.sortOrder}`;
         return sqlString;
     }
@@ -203,14 +200,14 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
     /**
      * Apply primevue paginate (default 10 rows)
      */
-    private applyPaginate(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier) {
+    private applyPaginate(sqlString: string, filterParams: PrimevueTableParamsConverterUnifier): string {
         const offset = filterParams.pageNumber * filterParams.rows;
         sqlString += ` LIMIT ${offset}, ${filterParams.rows} `;
         return sqlString;
     }
 
     /**
-     * 
+     * Get content block items
      */
     private async getItemsByContentBlockId(blockId: number): Promise<GetItemsByContentBlockIdType[]> {
         return await this.dbConnection.client.table('content_block_item')
@@ -222,5 +219,4 @@ export default class GramarketDbRepository implements GramarketDbRepositoryInter
             ])
             .where('content_block_item.content_block_id', blockId) as GetItemsByContentBlockIdType[]
     }
-
 }

@@ -67,7 +67,7 @@ export default class BlockController {
     }
 
     /**
-     * Get options for edit block
+     * Get options for block edit form
      */
     public async getBlockOptions(request: Request, response: Response, next: NextFunction) {
         try {

@@ -1,11 +1,6 @@
-import Helper from "sosise-core/build/Helper/Helper";
+import ContentBlockForListingType from "./ContentBlockForListingType";
 
 export default interface GetContentBlocksType {
-    id: number;
-    name: string;
-    title: string;
-    block: string;
-    pageType: string;
-    isEnable: boolean;
-    createdAt: Date;
+    blocks: ContentBlockForListingType[];
+    totalBlocks: number;
 }

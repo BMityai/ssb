@@ -1,5 +1,4 @@
 import AllCategoriesType from "../Types/AllCategoriesType";
-import GetContentBlocksType from "../Components/Content/Block/adminhtml/Types/GetContentBlocksType";
 import PrimevueTableParamsConverterUnifier from "../Components/Content/Block/adminhtml/Unifiers/PrimevueTableParamsConverterUnifier";
 
 export default interface GramarketDbRepositoryInterface {
