@@ -55,7 +55,8 @@ export default class BlockController {
      * Update ot create content block
      */
     public async updateOrCreateContentBlock(request: Request, response: Response, next: NextFunction) {
-        const updateOrCreateContentBlockUnifier = new UpdateOrCreateContentBlockUnifier(request.query)
+        const updateOrCreateContentBlockUnifier = new UpdateOrCreateContentBlockUnifier(request.query);
+        Helper.dump(updateOrCreateContentBlockUnifier);
        
         
         // try {
